@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# Xcode per-user state and build output
+xcuserdata/
+*.xcuserstate
+DerivedData/
+
+# Python
+__pycache__/
+*.pyc
+
+# Acceptance-script output and device log archives
+*.jsonl
+*.logarchive
+
+# Ad-hoc screenshots from earlier sessions
+.codex-artifacts/

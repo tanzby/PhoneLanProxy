@@ -1,0 +1,726 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 71;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A10000010000000000000001 /* SOCKS5Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000001 /* SOCKS5Protocol.swift */; };
+		A10000010000000000000002 /* NetworkUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000002 /* NetworkUtilities.swift */; };
+		A10000010000000000000003 /* TCPRelay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000003 /* TCPRelay.swift */; };
+		A10000010000000000000004 /* SOCKS5Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000004 /* SOCKS5Session.swift */; };
+		A10000010000000000000005 /* ProxyServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000005 /* ProxyServer.swift */; };
+		A10000010000000000000006 /* PhoneLanProxyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30000010000000000000001 /* PhoneLanProxyApp.swift */; };
+		A10000010000000000000007 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30000010000000000000002 /* AppModel.swift */; };
+		A10000010000000000000008 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30000010000000000000003 /* ContentView.swift */; };
+		A10000010000000000000009 /* LANAddressMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30000010000000000000004 /* LANAddressMonitor.swift */; };
+		A1000001000000000000000A /* SOCKS5ProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40000010000000000000001 /* SOCKS5ProtocolTests.swift */; };
+		A1000001000000000000000B /* Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A50000010000000000000001 /* Network.framework */; };
+		A1000001000000000000000C /* Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A50000010000000000000001 /* Network.framework */; };
+		A1000001000000000000000D /* Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A50000010000000000000001 /* Network.framework */; };
+		A1000001000000000000000E /* libPhoneLanProxyCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A60000010000000000000001 /* libPhoneLanProxyCore.a */; };
+		A1000001000000000000000F /* libPhoneLanProxyCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A60000010000000000000001 /* libPhoneLanProxyCore.a */; };
+		A10000010000000000000010 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A50000010000000000000002 /* XCTest.framework */; };
+		A10000010000000000000011 /* HTTPProxyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000006 /* HTTPProxyProtocol.swift */; };
+		A10000010000000000000012 /* HTTPProxySession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000007 /* HTTPProxySession.swift */; };
+		A10000010000000000000013 /* ProxySession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000008 /* ProxySession.swift */; };
+		A10000010000000000000014 /* HTTPProxyProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40000010000000000000002 /* HTTPProxyProtocolTests.swift */; };
+		A10000010000000000000015 /* BackgroundAudioKeepAlive.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30000010000000000000005 /* BackgroundAudioKeepAlive.swift */; };
+		A10000010000000000000016 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30000010000000000000002 /* AppModel.swift */; };
+		A10000010000000000000017 /* BackgroundAudioKeepAlive.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30000010000000000000005 /* BackgroundAudioKeepAlive.swift */; };
+		A10000010000000000000018 /* LANAddressMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30000010000000000000004 /* LANAddressMonitor.swift */; };
+		A10000010000000000000019 /* AppModelLifecycleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40000010000000000000003 /* AppModelLifecycleTests.swift */; };
+		A1000001000000000000001A /* ProxyLiveActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30000010000000000000006 /* ProxyLiveActivityController.swift */; };
+		A1000001000000000000001B /* ProxyActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30000010000000000000011 /* ProxyActivityAttributes.swift */; };
+		A1000001000000000000001C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A30000010000000000000007 /* Assets.xcassets */; };
+		A1000001000000000000001D /* ProxyLiveActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30000010000000000000006 /* ProxyLiveActivityController.swift */; };
+		A1000001000000000000001E /* ProxyActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30000010000000000000011 /* ProxyActivityAttributes.swift */; };
+		A1000001000000000000001F /* ProxyActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30000010000000000000011 /* ProxyActivityAttributes.swift */; };
+		A10000010000000000000020 /* PhoneLanProxyWidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30000010000000000000021 /* PhoneLanProxyWidgetsBundle.swift */; };
+		A10000010000000000000021 /* ProxyLiveActivityWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30000010000000000000022 /* ProxyLiveActivityWidget.swift */; };
+		A10000010000000000000022 /* PhoneLanProxyWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A60000010000000000000004 /* PhoneLanProxyWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A10000010000000000000023 /* ProxyLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30000010000000000000030 /* ProxyLog.swift */; };
+		A10000010000000000000024 /* ProxyLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30000010000000000000030 /* ProxyLog.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8E7BE79C305AEC3B00F19D67 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A00000010000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA0000010000000000000001;
+			remoteInfo = PhoneLanProxyCore;
+		};
+		8E7BE79D305AEC3B00F19D67 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A00000010000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA0000010000000000000001;
+			remoteInfo = PhoneLanProxyCore;
+		};
+		8E7BE79E305AEC3B00F19D67 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A00000010000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA0000010000000000000004;
+			remoteInfo = PhoneLanProxyWidgets;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AF0000010000000000000001 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A10000010000000000000022 /* PhoneLanProxyWidgets.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		A20000010000000000000001 /* SOCKS5Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOCKS5Protocol.swift; sourceTree = "<group>"; };
+		A20000010000000000000002 /* NetworkUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUtilities.swift; sourceTree = "<group>"; };
+		A20000010000000000000003 /* TCPRelay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCPRelay.swift; sourceTree = "<group>"; };
+		A20000010000000000000004 /* SOCKS5Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOCKS5Session.swift; sourceTree = "<group>"; };
+		A20000010000000000000005 /* ProxyServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxyServer.swift; sourceTree = "<group>"; };
+		A20000010000000000000006 /* HTTPProxyProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPProxyProtocol.swift; sourceTree = "<group>"; };
+		A20000010000000000000007 /* HTTPProxySession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPProxySession.swift; sourceTree = "<group>"; };
+		A20000010000000000000008 /* ProxySession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxySession.swift; sourceTree = "<group>"; };
+		A30000010000000000000001 /* PhoneLanProxyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneLanProxyApp.swift; sourceTree = "<group>"; };
+		A30000010000000000000002 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		A30000010000000000000003 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A30000010000000000000004 /* LANAddressMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LANAddressMonitor.swift; sourceTree = "<group>"; };
+		A30000010000000000000005 /* BackgroundAudioKeepAlive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundAudioKeepAlive.swift; sourceTree = "<group>"; };
+		A30000010000000000000006 /* ProxyLiveActivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxyLiveActivityController.swift; sourceTree = "<group>"; };
+		A30000010000000000000007 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A30000010000000000000011 /* ProxyActivityAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxyActivityAttributes.swift; sourceTree = "<group>"; };
+		A30000010000000000000021 /* PhoneLanProxyWidgetsBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneLanProxyWidgetsBundle.swift; sourceTree = "<group>"; };
+		A30000010000000000000022 /* ProxyLiveActivityWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxyLiveActivityWidget.swift; sourceTree = "<group>"; };
+		A30000010000000000000030 /* ProxyLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxyLog.swift; sourceTree = "<group>"; };
+		A40000010000000000000001 /* SOCKS5ProtocolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOCKS5ProtocolTests.swift; sourceTree = "<group>"; };
+		A40000010000000000000002 /* HTTPProxyProtocolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPProxyProtocolTests.swift; sourceTree = "<group>"; };
+		A40000010000000000000003 /* AppModelLifecycleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModelLifecycleTests.swift; sourceTree = "<group>"; };
+		A50000010000000000000001 /* Network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Network.framework; path = System/Library/Frameworks/Network.framework; sourceTree = SDKROOT; };
+		A50000010000000000000002 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = System/Library/Frameworks/XCTest.framework; sourceTree = SDKROOT; };
+		A60000010000000000000001 /* libPhoneLanProxyCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPhoneLanProxyCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A60000010000000000000002 /* PhoneLanProxy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhoneLanProxy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A60000010000000000000003 /* PhoneLanProxyCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhoneLanProxyCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A60000010000000000000004 /* PhoneLanProxyWidgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PhoneLanProxyWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A90000010000000000000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A90000010000000000000002 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A70000010000000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1000001000000000000000B /* Network.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A70000010000000000000002 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1000001000000000000000E /* libPhoneLanProxyCore.a in Frameworks */,
+				A1000001000000000000000C /* Network.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A70000010000000000000003 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10000010000000000000010 /* XCTest.framework in Frameworks */,
+				A1000001000000000000000F /* libPhoneLanProxyCore.a in Frameworks */,
+				A1000001000000000000000D /* Network.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A70000010000000000000004 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8E7BE79B305AEC3B00F19D67 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				A50000010000000000000001 /* Network.framework */,
+				A50000010000000000000002 /* XCTest.framework */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		A80000010000000000000001 = {
+			isa = PBXGroup;
+			children = (
+				A80000010000000000000002 /* Sources */,
+				A80000010000000000000003 /* App */,
+				A80000010000000000000008 /* Shared */,
+				A80000010000000000000009 /* Widgets */,
+				A80000010000000000000004 /* Tests */,
+				A80000010000000000000005 /* Products */,
+				8E7BE79B305AEC3B00F19D67 /* Recovered References */,
+			);
+			sourceTree = "<group>";
+		};
+		A80000010000000000000002 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				A80000010000000000000006 /* PhoneLanProxyCore */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		A80000010000000000000003 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A30000010000000000000001 /* PhoneLanProxyApp.swift */,
+				A30000010000000000000002 /* AppModel.swift */,
+				A30000010000000000000003 /* ContentView.swift */,
+				A30000010000000000000004 /* LANAddressMonitor.swift */,
+				A30000010000000000000005 /* BackgroundAudioKeepAlive.swift */,
+				A30000010000000000000006 /* ProxyLiveActivityController.swift */,
+				A30000010000000000000007 /* Assets.xcassets */,
+				A90000010000000000000001 /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A80000010000000000000004 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				A80000010000000000000007 /* PhoneLanProxyCoreTests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		A80000010000000000000005 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A60000010000000000000001 /* libPhoneLanProxyCore.a */,
+				A60000010000000000000002 /* PhoneLanProxy.app */,
+				A60000010000000000000003 /* PhoneLanProxyCoreTests.xctest */,
+				A60000010000000000000004 /* PhoneLanProxyWidgets.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A80000010000000000000006 /* PhoneLanProxyCore */ = {
+			isa = PBXGroup;
+			children = (
+				A20000010000000000000001 /* SOCKS5Protocol.swift */,
+				A20000010000000000000002 /* NetworkUtilities.swift */,
+				A20000010000000000000003 /* TCPRelay.swift */,
+				A20000010000000000000004 /* SOCKS5Session.swift */,
+				A20000010000000000000005 /* ProxyServer.swift */,
+				A20000010000000000000006 /* HTTPProxyProtocol.swift */,
+				A20000010000000000000007 /* HTTPProxySession.swift */,
+				A20000010000000000000008 /* ProxySession.swift */,
+			);
+			path = PhoneLanProxyCore;
+			sourceTree = "<group>";
+		};
+		A80000010000000000000007 /* PhoneLanProxyCoreTests */ = {
+			isa = PBXGroup;
+			children = (
+				A40000010000000000000001 /* SOCKS5ProtocolTests.swift */,
+				A40000010000000000000002 /* HTTPProxyProtocolTests.swift */,
+				A40000010000000000000003 /* AppModelLifecycleTests.swift */,
+			);
+			path = PhoneLanProxyCoreTests;
+			sourceTree = "<group>";
+		};
+		A80000010000000000000008 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				A30000010000000000000011 /* ProxyActivityAttributes.swift */,
+				A30000010000000000000030 /* ProxyLog.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		A80000010000000000000009 /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				A30000010000000000000021 /* PhoneLanProxyWidgetsBundle.swift */,
+				A30000010000000000000022 /* ProxyLiveActivityWidget.swift */,
+				A90000010000000000000002 /* Info.plist */,
+			);
+			path = Widgets;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AA0000010000000000000001 /* PhoneLanProxyCore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC0000010000000000000001 /* Build configuration list for PBXNativeTarget "PhoneLanProxyCore" */;
+			buildPhases = (
+				A70000010000000000000001 /* Frameworks */,
+				AD0000010000000000000001 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PhoneLanProxyCore;
+			productName = PhoneLanProxyCore;
+			productReference = A60000010000000000000001 /* libPhoneLanProxyCore.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		AA0000010000000000000002 /* PhoneLanProxy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC0000010000000000000002 /* Build configuration list for PBXNativeTarget "PhoneLanProxy" */;
+			buildPhases = (
+				A70000010000000000000002 /* Frameworks */,
+				AD0000010000000000000002 /* Sources */,
+				AE0000010000000000000001 /* Resources */,
+				AF0000010000000000000001 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AB0000010000000000000001 /* PBXTargetDependency */,
+				AB0000010000000000000003 /* PBXTargetDependency */,
+			);
+			name = PhoneLanProxy;
+			productName = PhoneLanProxy;
+			productReference = A60000010000000000000002 /* PhoneLanProxy.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AA0000010000000000000003 /* PhoneLanProxyCoreTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC0000010000000000000003 /* Build configuration list for PBXNativeTarget "PhoneLanProxyCoreTests" */;
+			buildPhases = (
+				A70000010000000000000003 /* Frameworks */,
+				AD0000010000000000000003 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AB0000010000000000000002 /* PBXTargetDependency */,
+			);
+			name = PhoneLanProxyCoreTests;
+			productName = PhoneLanProxyCoreTests;
+			productReference = A60000010000000000000003 /* PhoneLanProxyCoreTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AA0000010000000000000004 /* PhoneLanProxyWidgets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC0000010000000000000004 /* Build configuration list for PBXNativeTarget "PhoneLanProxyWidgets" */;
+			buildPhases = (
+				A70000010000000000000004 /* Frameworks */,
+				AD0000010000000000000004 /* Sources */,
+				AE0000010000000000000002 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PhoneLanProxyWidgets;
+			productName = PhoneLanProxyWidgets;
+			productReference = A60000010000000000000004 /* PhoneLanProxyWidgets.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A00000010000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 2700;
+				TargetAttributes = {
+					AA0000010000000000000003 = {
+						CreatedOnToolsVersion = 27.0;
+						TestTargetID = AA0000010000000000000002;
+					};
+				};
+			};
+			buildConfigurationList = AC0000010000000000000000 /* Build configuration list for PBXProject "PhoneLanProxy" */;
+			compatibilityVersion = "Xcode 16.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A80000010000000000000001;
+			productRefGroup = A80000010000000000000005 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AA0000010000000000000001 /* PhoneLanProxyCore */,
+				AA0000010000000000000002 /* PhoneLanProxy */,
+				AA0000010000000000000003 /* PhoneLanProxyCoreTests */,
+				AA0000010000000000000004 /* PhoneLanProxyWidgets */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AE0000010000000000000001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1000001000000000000001C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE0000010000000000000002 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AD0000010000000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10000010000000000000001 /* SOCKS5Protocol.swift in Sources */,
+				A10000010000000000000002 /* NetworkUtilities.swift in Sources */,
+				A10000010000000000000003 /* TCPRelay.swift in Sources */,
+				A10000010000000000000004 /* SOCKS5Session.swift in Sources */,
+				A10000010000000000000005 /* ProxyServer.swift in Sources */,
+				A10000010000000000000011 /* HTTPProxyProtocol.swift in Sources */,
+				A10000010000000000000012 /* HTTPProxySession.swift in Sources */,
+				A10000010000000000000013 /* ProxySession.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD0000010000000000000002 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10000010000000000000006 /* PhoneLanProxyApp.swift in Sources */,
+				A10000010000000000000007 /* AppModel.swift in Sources */,
+				A10000010000000000000008 /* ContentView.swift in Sources */,
+				A10000010000000000000009 /* LANAddressMonitor.swift in Sources */,
+				A10000010000000000000015 /* BackgroundAudioKeepAlive.swift in Sources */,
+				A1000001000000000000001A /* ProxyLiveActivityController.swift in Sources */,
+				A1000001000000000000001B /* ProxyActivityAttributes.swift in Sources */,
+				A10000010000000000000023 /* ProxyLog.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD0000010000000000000003 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1000001000000000000000A /* SOCKS5ProtocolTests.swift in Sources */,
+				A10000010000000000000014 /* HTTPProxyProtocolTests.swift in Sources */,
+				A10000010000000000000016 /* AppModel.swift in Sources */,
+				A10000010000000000000017 /* BackgroundAudioKeepAlive.swift in Sources */,
+				A10000010000000000000018 /* LANAddressMonitor.swift in Sources */,
+				A10000010000000000000019 /* AppModelLifecycleTests.swift in Sources */,
+				A1000001000000000000001D /* ProxyLiveActivityController.swift in Sources */,
+				A1000001000000000000001E /* ProxyActivityAttributes.swift in Sources */,
+				A10000010000000000000024 /* ProxyLog.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD0000010000000000000004 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1000001000000000000001F /* ProxyActivityAttributes.swift in Sources */,
+				A10000010000000000000020 /* PhoneLanProxyWidgetsBundle.swift in Sources */,
+				A10000010000000000000021 /* ProxyLiveActivityWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AB0000010000000000000001 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA0000010000000000000001 /* PhoneLanProxyCore */;
+			targetProxy = 8E7BE79C305AEC3B00F19D67 /* PBXContainerItemProxy */;
+		};
+		AB0000010000000000000002 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA0000010000000000000001 /* PhoneLanProxyCore */;
+			targetProxy = 8E7BE79D305AEC3B00F19D67 /* PBXContainerItemProxy */;
+		};
+		AB0000010000000000000003 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA0000010000000000000004 /* PhoneLanProxyWidgets */;
+			targetProxy = 8E7BE79E305AEC3B00F19D67 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		AC1000010000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				COPY_PHASE_STRIP = NO;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		AC1000010000000000000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				COPY_PHASE_STRIP = NO;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		AC1000010000000000000011 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				ENABLE_TESTABILITY = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				PRODUCT_MODULE_NAME = PhoneLanProxyCore;
+				PRODUCT_NAME = PhoneLanProxyCore;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		AC1000010000000000000012 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				PRODUCT_MODULE_NAME = PhoneLanProxyCore;
+				PRODUCT_NAME = PhoneLanProxyCore;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		AC1000010000000000000021 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WU2N563FGA;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = App/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zubingtan.PhoneLanProxy;
+				PRODUCT_NAME = PhoneLanProxy;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		AC1000010000000000000022 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WU2N563FGA;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = App/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zubingtan.PhoneLanProxy;
+				PRODUCT_NAME = PhoneLanProxy;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		AC1000010000000000000031 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WU2N563FGA;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.PhoneLanProxyCoreTests;
+				PRODUCT_NAME = PhoneLanProxyCoreTests;
+				SDKROOT = iphonesimulator;
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AC1000010000000000000032 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WU2N563FGA;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.PhoneLanProxyCoreTests;
+				PRODUCT_NAME = PhoneLanProxyCoreTests;
+				SDKROOT = iphonesimulator;
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AC1000010000000000000041 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WU2N563FGA;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Widgets/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zubingtan.PhoneLanProxy.Widgets;
+				PRODUCT_NAME = PhoneLanProxyWidgets;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		AC1000010000000000000042 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WU2N563FGA;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Widgets/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zubingtan.PhoneLanProxy.Widgets;
+				PRODUCT_NAME = PhoneLanProxyWidgets;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AC0000010000000000000000 /* Build configuration list for PBXProject "PhoneLanProxy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC1000010000000000000001 /* Debug */,
+				AC1000010000000000000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AC0000010000000000000001 /* Build configuration list for PBXNativeTarget "PhoneLanProxyCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC1000010000000000000011 /* Debug */,
+				AC1000010000000000000012 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AC0000010000000000000002 /* Build configuration list for PBXNativeTarget "PhoneLanProxy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC1000010000000000000021 /* Debug */,
+				AC1000010000000000000022 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AC0000010000000000000003 /* Build configuration list for PBXNativeTarget "PhoneLanProxyCoreTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC1000010000000000000031 /* Debug */,
+				AC1000010000000000000032 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AC0000010000000000000004 /* Build configuration list for PBXNativeTarget "PhoneLanProxyWidgets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC1000010000000000000041 /* Debug */,
+				AC1000010000000000000042 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A00000010000000000000001 /* Project object */;
+}
