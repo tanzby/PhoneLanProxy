@@ -20,3 +20,6 @@ __pycache__/
 
 # Ad-hoc screenshots from earlier sessions
 .codex-artifacts/
+
+# IPA build output (scripts/build_ipa.sh)
+build/
