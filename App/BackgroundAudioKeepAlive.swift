@@ -37,9 +37,7 @@ protocol BackgroundAudioKeeping: AnyObject {
 /// of `.shouldResume`, since resuming inaudible mixable audio cannot disturb
 /// the user.
 @MainActor
-// @preconcurrency: the iOS 27 SDK marks AVAudioPlayerDelegate main-actor; older SDKs
-// (the CI runner's Xcode 26) leave it nonisolated though callbacks still arrive on main.
-final class BackgroundAudioKeepAlive: NSObject, @preconcurrency AVAudioPlayerDelegate, BackgroundAudioKeeping {
+final class BackgroundAudioKeepAlive: NSObject, AVAudioPlayerDelegate, BackgroundAudioKeeping {
     private static let retryDelays: [Duration] = [.seconds(1), .seconds(3), .seconds(10)]
     private static let watchdogInterval: Duration = .seconds(30)
     private static let lostInterruptionEndAfter: TimeInterval = 60

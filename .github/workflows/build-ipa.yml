@@ -1,41 +1,45 @@
-# Builds the unsigned PhoneLanProxy.ipa that AltStore / SideStore re-sign on install.
-# Every run uploads it as a workflow artifact; a pushed v* tag also publishes it as a
-# GitHub Release, downloadable on the phone from
-# https://github.com/<owner>/<repo>/releases/latest/download/PhoneLanProxy.ipa
+# Builds the unsigned PhoneLanProxy.ipa for AltStore / SideStore; a v* tag also publishes it as a Release.
 name: Build IPA
 
 on:
   push:
     branches: [main]
     tags: ['v*']
+    paths-ignore: ['**.md', '.gitignore']
   pull_request:
+    paths-ignore: ['**.md', '.gitignore']
   workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 permissions:
   contents: write
 
 jobs:
   build:
-    runs-on: macos-26
+    # Same Xcode major as local development, so CI sees the same SDK concurrency annotations.
+    runs-on: xcode-27
     steps:
       - uses: actions/checkout@v4
 
-      - name: Show Xcode version
-        run: xcodebuild -version
-
       - name: Build IPA
         run: |
+          xcodebuild -version
+          set -- "CURRENT_PROJECT_VERSION=$GITHUB_RUN_NUMBER"
           if [ "$GITHUB_REF_TYPE" = tag ]; then
-            scripts/build_ipa.sh build "MARKETING_VERSION=${GITHUB_REF_NAME#v}" "CURRENT_PROJECT_VERSION=$GITHUB_RUN_NUMBER"
-          else
-            scripts/build_ipa.sh build "CURRENT_PROJECT_VERSION=$GITHUB_RUN_NUMBER"
+            set -- "$@" "MARKETING_VERSION=${GITHUB_REF_NAME#v}"
           fi
+          scripts/build_ipa.sh "$@"
 
       - uses: actions/upload-artifact@v4
         with:
           name: PhoneLanProxy-ipa
           path: build/PhoneLanProxy.ipa
           if-no-files-found: error
+          compression-level: 0
+          retention-days: 14
 
       - name: Publish release
         if: github.ref_type == 'tag'
