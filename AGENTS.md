@@ -32,7 +32,12 @@ App target (SwiftUI iOS app; not part of the SPM manifest, lives in `App/`) plus
 ```sh
 xcodebuild test -project PhoneLanProxy.xcodeproj -scheme PhoneLanProxy -destination 'platform=iOS Simulator,name=iPhone 18 Pro'   # Core + AppModel tests on the simulator
 swift scripts/generate_app_icon.swift App/Assets.xcassets/AppIcon.appiconset   # regenerate the app icon (drawn with CoreGraphics; SF Symbols are not allowed in app icons)
+scripts/build_ipa.sh   # unsigned Release build/PhoneLanProxy.ipa for AltStore/SideStore, which re-sign it with the user's Apple Account
 ```
+
+CI (`.github/workflows/build-ipa.yml`) runs `build_ipa.sh` on every push/PR; a pushed `v*` tag publishes the IPA as a GitHub Release. Keep its runner on the same Xcode major as local development: SDK concurrency annotations differ between majors, so an older CI Xcode fails Swift 6 builds that pass locally.
+
+The app has no entitlements file, App Groups, or keychain sharing (background audio, Live Activities, and local network are Info.plist-only), so it survives AltStore/SideStore re-signing, which appends the signer's Team ID to every bundle id. Keep it that way, or sideloaded installs break.
 
 The Xcode project is hand-maintained with explicit file references and synthetic object IDs (no synchronized groups): adding a file means adding a `PBXFileReference`, a group entry, and a `PBXBuildFile` in each target that compiles it.
 
