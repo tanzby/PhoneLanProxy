@@ -5,22 +5,9 @@ PhoneLanProxy 是一个 iOS TCP 代理：Mac 连接 iPhone 的代理端口，iPh
 ## 打开和运行
 
 1. 用 Xcode 打开 `PhoneLanProxy.xcodeproj`，选择 `PhoneLanProxy` scheme。
-2. 在 Signing & Capabilities 中为 `PhoneLanProxy` 和 `PhoneLanProxyWidgets` 两个 target 选择同一个 Team，部署目标为 iOS 17 或更高版本。App 的 bundle id 为 `com.zubingtan.PhoneLanProxy`，灵动岛扩展为 `com.zubingtan.PhoneLanProxy.Widgets`；改 App 的 id 时必须同步改扩展的 id（扩展 id 必须以 App id 为前缀）。免费 Personal Team 的描述文件 7 天过期，过期后需要重新从 Xcode 安装。
+2. 在 Signing & Capabilities 中为 `PhoneLanProxy` 和 `PhoneLanProxyWidgets` 两个 target 选择同一个 Team，部署目标为 iOS 17 或更高版本。App 的 bundle id 为 `com.zubingtan.PhoneLanProxy`，灵动岛扩展为 `com.zubingtan.PhoneLanProxy.Widgets`；改 App 的 id 时必须同步改扩展的 id（扩展 id 必须以 App id 为前缀）。免费 Personal Team 的描述文件 7 天过期，过期后需要重新从 Xcode 安装；如果不想每周连电脑重装，见下面的“用 AltStore 安装”。
 3. 在模拟器或 iPhone 启动 App，点击“启动代理”。监听端口固定为 TCP `10808`，同一端口按首字节分别识别 SOCKS5 和 HTTP，界面显示当前可用的局域网地址。
 4. 代理启动后可以切换其他 App、刷视频听音乐或锁屏，灵动岛会显示一个路由器图标。详见下面的“后台运行”和“灵动岛”。
-
-## 用 AltStore / SideStore 安装（免费账号续签不再需要电脑）
-
-免费 Apple 账号签名的 App 都只有 7 天有效期，这个限制去不掉。AltStore Classic（Remote AltServer）和 SideStore 能在手机上直接续签，不用每周连电脑重装。两者的流程相同：先用电脑配置一次，之后续签时打开 LocalDevVPN、连 Wi-Fi 即可。具体步骤以官方文档为准：[AltStore Remote AltServers](https://faq.altstore.io/altstore-classic/remote-altservers)、[SideStore 安装](https://docs.sidestore.io/docs/installation/prerequisites)。
-
-1. 获取无签名 IPA（AltStore/SideStore 会用你的 Apple 账号重签）：
-   - GitHub Actions（`.github/workflows/build-ipa.yml`）在每次推送 `v*` tag 时自动构建，并发布到 Releases。在 iPhone 的 Safari 里打开 `https://github.com/tanzby/PhoneLanProxy/releases/latest/download/PhoneLanProxy.ipa` 下载即可。推送到 main 和提交 PR 时也会构建，产物在该次 workflow run 的 Artifacts 里。
-   - 也可以在 Mac 上本地构建：`scripts/build_ipa.sh`，输出 `build/PhoneLanProxy.ipa`。
-
-2. 在 AltStore/SideStore 的 My Apps 里点 `+`，从“文件”中选中下载好的 IPA 安装。如果之前用 Xcode 装过，先删掉那份，因为重签后 bundle id 会带上 Team ID 后缀，变成另一个 App。
-3. 续签：在 My Apps 里点 App 旁边的剩余天数，或者点 Refresh All。续签时 LocalDevVPN 必须连着；iOS 同一时间只能连一个 VPN，手机上如果还有别的 VPN，会被临时断开，续签完再切回去。续签前建议先在 App 里停止代理。
-
-免费账号的限制：同时最多 3 个侧载 App（包括 AltStore/SideStore 本身），每 7 天最多注册 10 个 App ID。本 App 带一个灵动岛扩展，所以要占 2 个 App ID。
 
 该代理没有认证和加密，只适合可信的局域网。不要把 TCP 10808 暴露到互联网。HTTPS 只转发 CONNECT 建立的 TCP 字节流，手机不会解密 TLS。iOS 的局域网访问提示和实际行为需要在目标真机上确认；模拟器结果不作为权限验收。
 
@@ -46,6 +33,38 @@ curl --proxy http://<iphone-lan-ip>:10808 https://example.com/
 转发**明文 HTTP** 请求时，代理会剥离一批暴露设备/OS 的请求头：`User-Agent`、全套 Client Hints（`Sec-CH-*`，含 UA 类的 `Sec-CH-UA-Platform` 等）、以及非 `Sec-CH-` 前缀的设备/网络特征头（`DPR`、`Device-Memory`、`Viewport-Width`、`Downlink`、`X-Requested-With` 等）。这些 Client Hints 都是站点通过 `Accept-CH` 显式索要的可选头，删掉只会回退默认值，几乎无副作用。这样源站或手机出口侧的 VPN 就无法从请求头看出流量来自 Mac 而非手机。TCP/IP 层本就是手机重新发起的出站连接，天然是 iOS 指纹。
 
 注意局限：**这只对明文 HTTP 有效。** HTTPS（`CONNECT` 隧道）是不透明字节管道，手机不解密 TLS——隧道内加密的 User-Agent 无法修改，且 TLS 握手的 ClientHello 指纹（JA3/JA4）由 Mac 上的应用生成、代理也无法改写，仍可能暴露“客户端是 macOS”。要覆盖 HTTPS 必须做 TLS 拦截（MITM），本项目不做。
+
+## 用 AltStore 安装（免费 Apple 账号，续签不用电脑）
+
+免费 Apple 账号签名的 App 只有 7 天有效期，这个限制去不掉。用 AltStore Classic 的 Remote AltServer，可以在手机上直接续签，不用每周连电脑重装。电脑只在首次设置时需要用一次。SideStore 的流程类似，见 [SideStore 安装文档](https://docs.sidestore.io/docs/installation/prerequisites)。
+
+**一、首次设置（需要 Mac，只做一次）**，详见 [How to Install (macOS)](https://faq.altstore.io/altstore-classic/how-to-install-altstore-macos)
+
+1. 下载 [AltServer](https://cdn.altstore.io/file/altstore/altserver.zip)（需要 macOS 11 或更高），放进「应用程序」后打开。它只在菜单栏显示一个图标。
+2. 用数据线连接 iPhone，保持解锁，并点「信任此电脑」。点菜单栏的 AltServer 图标，选 **Install AltStore**，选择你的 iPhone，再登录 Apple ID。
+3. 在 iPhone 上操作：「设置 → 通用 → VPN 与设备管理」，信任你的 Apple ID；再到「设置 → 隐私与安全性」，打开「开发者模式」（手机会重启）。
+4. 从 App Store 安装 [LocalDevVPN](https://apps.apple.com/app/id6755608044)。在 AltStore 里进入 Settings → **Set up Remote AltServer...**，按 App 内提示完成配对，详见 [Remote AltServers](https://faq.altstore.io/altstore-classic/remote-altservers)。如果 My Apps 里有 AltStore 的 **UPDATE**，先更新到最新版（2.3.2 修复了侧载和续签时的 HTTP 503 错误）。
+
+**二、获取 IPA**
+
+- 推送 `v*` tag 后，GitHub Actions（`.github/workflows/build-ipa.yml`）会自动构建并发布到 Releases。在 iPhone 的 Safari 里打开 `https://github.com/tanzby/PhoneLanProxy/releases/latest/download/PhoneLanProxy.ipa` 即可下载。推送到 main 或提交 PR 时也会构建，产物在对应 workflow run 的 Artifacts 里，需要登录 GitHub 才能下载，下载后是 zip。
+- 也可以在 Mac 上本地构建：`scripts/build_ipa.sh`，输出 `build/PhoneLanProxy.ipa`。IPA 不带签名，安装时由 AltStore 用你的 Apple 账号签名。
+
+**三、安装**（如果之前用 Xcode 装过，先删掉那份：重签后 bundle id 会带上 Team ID 后缀，变成另一个 App）
+
+- 用手机安装：先把 IPA 存进「文件」（下载或隔空投送都可以），连上 Wi-Fi 并打开 LocalDevVPN，然后在 AltStore 的 **My Apps** 页点左上角的 **+**，选中这个 IPA。
+- 用 Mac 安装：iPhone 用数据线连接并保持解锁，按住 **Option** 点菜单栏的 AltServer 图标，选 **Sideload .ipa…**，再选中 IPA。
+
+装好后，App 会出现在 My Apps 里，旁边显示剩余天数。保留 App 扩展才有灵动岛；不保留也不影响代理功能。
+
+**四、续签（只用手机，7 天内做一次）**：先在 App 里停止代理，连上 Wi-Fi，打开 LocalDevVPN，在 AltStore 的 My Apps 页点 **Refresh All**，完成后切回原来的 VPN。iOS 同一时间只能连一个 VPN，手机上的其他 VPN 会被临时断开。
+
+**常见问题**
+
+- 同一个 Wi-Fi 下 AltServer 也找不到手机：公司、学校或公共 Wi-Fi 常会阻止设备之间互相发现，改用数据线连接即可，见 [Troubleshooting Guide](https://faq.altstore.io/altstore-classic/troubleshooting-guide)。
+- 提示 `Remote AltServer sent invalid response`，或者连不上服务器：确认 Wi-Fi 和 LocalDevVPN 都已连接，过几分钟再试，或者在 Settings 里点 **Choose Server** 换一个服务器。
+- 提示 HTTP 503：先更新 AltStore。如果更新也失败，用数据线连 Mac，在 AltServer 菜单里重新选 **Install AltStore**（不用先删除，覆盖安装即可）。
+- 免费账号的限制：同时最多 3 个侧载 App（AltStore 本身也算一个），每 7 天最多注册 10 个 App ID。本 App 带灵动岛扩展，要占 2 个 App ID。
 
 ## 后台运行
 
